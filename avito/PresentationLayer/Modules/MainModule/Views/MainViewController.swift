@@ -97,8 +97,6 @@ class MainViewController: UIViewController {
         collectionView.delegate = self
         collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.Constants.reuseIdentifier)
         collectionView.dataSource = dataSource
-        view.addSubview(errorImageView)
-        view.addSubview(errorLabel)
     }
 
     private func setupConstraints() {
@@ -114,6 +112,8 @@ class MainViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        view.addSubview(errorImageView)
+        view.addSubview(errorLabel)
         NSLayoutConstraint.activate([
             errorImageView.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 125),
             errorImageView.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor, constant: 40),
@@ -172,7 +172,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegate
 extension MainViewController: MainViewInputProtocol {
 
     func setErrorState(error: String) {
-        refreshControl.endRefreshing()
+        collectionView.isUserInteractionEnabled = true
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
+        if activityIndicator.isAnimating {
+            activityIndicator.stopAnimating()
+        }
         errorImageView.isHidden = false
         errorLabel.isHidden = false
         errorLabel.text = "Потяните экран вниз для перезагрузки. Ошибка: \(error)"

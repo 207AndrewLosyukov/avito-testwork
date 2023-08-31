@@ -33,7 +33,7 @@ class ItemsListRequest: RequestProtocol {
         guard let url = URL(string: "https://www.avito.st/s/interns-ios/main-page.json") else {
             return nil
         }
-        return URLRequest(url: url)
+        return URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
     }
 
     init() {
@@ -45,7 +45,7 @@ class ItemDetailsRequest: RequestProtocol {
         guard let url = URL(string: "https://www.avito.st/s/interns-ios/details/\(id).json") else {
             return nil
         }
-        return URLRequest(url: url)
+        return URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
     }
 
     private let id: Int

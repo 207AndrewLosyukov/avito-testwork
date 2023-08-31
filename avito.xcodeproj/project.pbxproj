@@ -17,7 +17,7 @@
 		15D82CED2A9E4C2600DD062C /* DetailsViewOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CEC2A9E4C2600DD062C /* DetailsViewOutputProtocol.swift */; };
 		15D82CF02A9E50FC00DD062C /* DetailsModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CEF2A9E50FC00DD062C /* DetailsModuleAssembly.swift */; };
 		15D82CF22A9E511E00DD062C /* DetailsServiceModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CF12A9E511E00DD062C /* DetailsServiceModuleAssembly.swift */; };
-		15D82CFA2AA061EE00DD062C /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CF92AA061EE00DD062C /* Responses.swift */; };
+		15D82CFA2AA061EE00DD062C /* ItemResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CF92AA061EE00DD062C /* ItemResponses.swift */; };
 		15FB74F82A97954400F621A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FB74F72A97954400F621A5 /* AppDelegate.swift */; };
 		15FB74FC2A97954400F621A5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FB74FB2A97954400F621A5 /* MainViewController.swift */; };
 		15FB75012A97954500F621A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15FB75002A97954500F621A5 /* Assets.xcassets */; };
@@ -25,7 +25,7 @@
 		15FB750C2A97974600F621A5 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FB750B2A97974600F621A5 /* DetailsViewController.swift */; };
 		15FB750E2A97979000F621A5 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FB750D2A97979000F621A5 /* ProductCell.swift */; };
 		15FB75172A979A0C00F621A5 /* ItemLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FB75102A979A0C00F621A5 /* ItemLoaderService.swift */; };
-		15FB75182A979A0C00F621A5 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FB75112A979A0C00F621A5 /* Requests.swift */; };
+		15FB75182A979A0C00F621A5 /* ItemRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FB75112A979A0C00F621A5 /* ItemRequests.swift */; };
 		15FB75192A979A0C00F621A5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FB75122A979A0C00F621A5 /* NetworkService.swift */; };
 		15FB751A2A979A0C00F621A5 /* RequestParsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FB75132A979A0C00F621A5 /* RequestParsers.swift */; };
 		15FB751B2A979A0C00F621A5 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FB75152A979A0C00F621A5 /* NetworkServiceProtocol.swift */; };
@@ -45,7 +45,7 @@
 		15D82CEC2A9E4C2600DD062C /* DetailsViewOutputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewOutputProtocol.swift; sourceTree = "<group>"; };
 		15D82CEF2A9E50FC00DD062C /* DetailsModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModuleAssembly.swift; sourceTree = "<group>"; };
 		15D82CF12A9E511E00DD062C /* DetailsServiceModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsServiceModuleAssembly.swift; sourceTree = "<group>"; };
-		15D82CF92AA061EE00DD062C /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
+		15D82CF92AA061EE00DD062C /* ItemResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemResponses.swift; sourceTree = "<group>"; };
 		15FB74F42A97954400F621A5 /* avito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = avito.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FB74F72A97954400F621A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15FB74FB2A97954400F621A5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		15FB750B2A97974600F621A5 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		15FB750D2A97979000F621A5 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		15FB75102A979A0C00F621A5 /* ItemLoaderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemLoaderService.swift; sourceTree = "<group>"; };
-		15FB75112A979A0C00F621A5 /* Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		15FB75112A979A0C00F621A5 /* ItemRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemRequests.swift; sourceTree = "<group>"; };
 		15FB75122A979A0C00F621A5 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		15FB75132A979A0C00F621A5 /* RequestParsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestParsers.swift; sourceTree = "<group>"; };
 		15FB75152A979A0C00F621A5 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
@@ -124,8 +124,6 @@
 			children = (
 				15FB75122A979A0C00F621A5 /* NetworkService.swift */,
 				15FB75152A979A0C00F621A5 /* NetworkServiceProtocol.swift */,
-				15FB75112A979A0C00F621A5 /* Requests.swift */,
-				15D82CF92AA061EE00DD062C /* Responses.swift */,
 				15FB75132A979A0C00F621A5 /* RequestParsers.swift */,
 			);
 			path = NetworkService;
@@ -136,6 +134,8 @@
 			children = (
 				15FB75102A979A0C00F621A5 /* ItemLoaderService.swift */,
 				15FB75162A979A0C00F621A5 /* ItemLoaderServiceProtocol.swift */,
+				15FB75112A979A0C00F621A5 /* ItemRequests.swift */,
+				15D82CF92AA061EE00DD062C /* ItemResponses.swift */,
 			);
 			path = ItemLoaderService;
 			sourceTree = "<group>";
@@ -330,7 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15D82CFA2AA061EE00DD062C /* Responses.swift in Sources */,
+				15D82CFA2AA061EE00DD062C /* ItemResponses.swift in Sources */,
 				15FB751A2A979A0C00F621A5 /* RequestParsers.swift in Sources */,
 				15FB74FC2A97954400F621A5 /* MainViewController.swift in Sources */,
 				15D82CE42A9E461300DD062C /* MainModuleAssembly.swift in Sources */,
@@ -341,7 +341,7 @@
 				15FB751C2A979A0C00F621A5 /* ItemLoaderServiceProtocol.swift in Sources */,
 				15FB750E2A97979000F621A5 /* ProductCell.swift in Sources */,
 				15FB74F82A97954400F621A5 /* AppDelegate.swift in Sources */,
-				15FB75182A979A0C00F621A5 /* Requests.swift in Sources */,
+				15FB75182A979A0C00F621A5 /* ItemRequests.swift in Sources */,
 				15D82CF02A9E50FC00DD062C /* DetailsModuleAssembly.swift in Sources */,
 				15FB751E2A98BEBA00F621A5 /* ConfigurableViewProtocol.swift in Sources */,
 				15D82CDA2A9E36AF00DD062C /* MainViewInputProtocol.swift in Sources */,

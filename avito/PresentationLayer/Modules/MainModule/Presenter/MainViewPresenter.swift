@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewPresenter: MainViewOutputProtocol {
 
-    let service: ItemLoaderServiceProtocol
+    private let service: ItemLoaderServiceProtocol
 
     private var items = [ProductItem]()
 
