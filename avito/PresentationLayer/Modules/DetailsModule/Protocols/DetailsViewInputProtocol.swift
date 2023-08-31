@@ -13,7 +13,7 @@ protocol DetailsViewInputProtocol: AnyObject {
 
     func setLoadedWithImageState(data: Data?)
 
-    func setErrorState(error: String)
+    func setErrorState(_ error: String)
 
     func setLoadingWithoutImageState()
 

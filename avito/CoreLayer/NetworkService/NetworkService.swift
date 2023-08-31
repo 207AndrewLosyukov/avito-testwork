@@ -13,7 +13,7 @@ class NetworkService: NetworkServiceProtocol {
         case requestError(_ string: String)
     }
 
-    let session: URLSession
+    private let session: URLSession
 
     init(session: URLSession = URLSession.shared) {
         self.session = session

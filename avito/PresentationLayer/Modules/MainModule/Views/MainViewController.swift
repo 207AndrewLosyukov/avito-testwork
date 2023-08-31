@@ -37,23 +37,6 @@ class MainViewController: UIViewController {
     private var output: MainViewOutputProtocol
     private let refreshControl = UIRefreshControl()
     let searchController = UISearchController()
-    
-    enum Constants {
-        static let spacing = 20.0
-        static let minimumLineSpacing = 15.0
-
-        static let cellWidth = 160.0
-        static let cellHeight = 230.0
-
-        static let transitionAnimationDuration = 0.6
-
-        static let fontSize = 18.0
-
-        static let errorImageViewTopConstraint = 80.0
-        static let errorImageViewSideConstraint = 40.0
-        static let errorImageViewHeight = 400.0
-        static let errorLabelTopConstraint = 20.0
-    }
 
     init(output: MainViewOutputProtocol) {
         self.output = output
@@ -186,7 +169,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegate
 
 extension MainViewController: MainViewInputProtocol {
 
-    func setErrorState(error: String) {
+    func setErrorState(_ error: String) {
         collectionView.isUserInteractionEnabled = true
         if refreshControl.isRefreshing {
             refreshControl.endRefreshing()
@@ -222,5 +205,24 @@ extension MainViewController: MainViewInputProtocol {
         snapshot.appendSections([ProductSection.none])
         snapshot.appendItems(items)
         dataSource.apply(snapshot, animatingDifferences: true)
+    }
+}
+
+extension MainViewController {
+    enum Constants {
+        static let spacing = 20.0
+        static let minimumLineSpacing = 15.0
+
+        static let cellWidth = 160.0
+        static let cellHeight = 230.0
+
+        static let transitionAnimationDuration = 0.6
+
+        static let fontSize = 18.0
+
+        static let errorImageViewTopConstraint = 80.0
+        static let errorImageViewSideConstraint = 40.0
+        static let errorImageViewHeight = 400.0
+        static let errorLabelTopConstraint = 20.0
     }
 }

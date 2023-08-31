@@ -22,19 +22,25 @@ class MainViewPresenter: MainViewOutputProtocol {
     func loadItemsList() {
         viewInput?.setLoadingState()
         service.loadItemsList(handler: {[weak self] result in
+            guard let self else {
+                return
+            }
             switch(result) {
             case .success(let items):
-                self?.items = items.map({ item in
-                    ProductItem(model: ProductCellModel(id: Int(item.id) ?? 0, title: item.title, price: item.price, location: item.location, url: item.imageUrl, createdDate: item.createdDate))
+                self.items = items.map({ item in
+                    ProductItem(model: ProductCellModel(id: Int(item.id) ?? 0,
+                                                        title: item.title,
+                                                        price: item.price,
+                                                        location: item.location,
+                                                        url: item.imageUrl,
+                                                        createdDate: item.createdDate))
                 })
                 DispatchQueue.main.async {
-                    if let items = self?.items {
-                        self?.viewInput?.setLoadedState(with: items)
-                    }
+                    self.viewInput?.setLoadedState(with: self.items)
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self?.viewInput?.setErrorState(error: error.localizedDescription)
+                    self.viewInput?.setErrorState(error.localizedDescription)
                 }
             }
         })
@@ -45,6 +51,9 @@ class MainViewPresenter: MainViewOutputProtocol {
         copyModel.isFetching = true
         items[index].model = copyModel
         service.loadItemImage(url: model.url) { [weak self] (result) in
+            guard let self else {
+                return
+            }
             switch result {
             case .success(let imageData):
                 guard let image = UIImage(data: imageData) else {
@@ -53,10 +62,8 @@ class MainViewPresenter: MainViewOutputProtocol {
                 copyModel.isFetching = false
                 copyModel.image = image
                 DispatchQueue.main.async {
-                    self?.items[index].model = copyModel
-                    if let items = self?.items {
-                        self?.viewInput?.updateLoadedState(with: items)
-                    }
+                    self.items[index].model = copyModel
+                    self.viewInput?.updateLoadedState(with: self.items)
                 }
             case .failure(let error):
                 print(error.localizedDescription)

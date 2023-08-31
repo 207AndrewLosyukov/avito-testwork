@@ -9,8 +9,8 @@ import Foundation
 
 final class DetailsViewPresenter: DetailsViewOutputProtocol {
 
-    let service: ItemLoaderServiceProtocol
-    let id: Int
+    private let service: ItemLoaderServiceProtocol
+    private let id: Int
 
     weak var viewInput: DetailsViewInputProtocol?
 
@@ -20,18 +20,15 @@ final class DetailsViewPresenter: DetailsViewOutputProtocol {
     }
 
     func loadDetails() {
-        let service = ItemLoaderService(networkService: NetworkService())
         viewInput?.setLoadingWithoutImageState()
-        service.loadItemDetails(id: id) {
-            [weak self] result in
+        self.service.loadItemDetails(id: id) { [weak self] result in
             switch (result) {
             case .success(let detailsModel):
                 DispatchQueue.main.async {
                     self?.viewInput?.setLoadedWithoutImageState(detailsModel: detailsModel)
                     self?.viewInput?.setLoadingWithImageState()
                 }
-                service.loadItemImage(url: detailsModel.imageUrl, handler: {
-                    [weak self] result in
+                self?.service.loadItemImage(url: detailsModel.imageUrl, handler: { [weak self] result in
                     switch(result) {
                     case .success(let data):
                         DispatchQueue.main.async {
@@ -45,7 +42,7 @@ final class DetailsViewPresenter: DetailsViewOutputProtocol {
                 })
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self?.viewInput?.setErrorState(error: error.localizedDescription)
+                    self?.viewInput?.setErrorState(error.localizedDescription)
                 }
                 print(error)
             }

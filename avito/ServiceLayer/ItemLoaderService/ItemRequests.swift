@@ -21,7 +21,7 @@ class ItemImageRequest: RequestProtocol {
         return URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
     }
 
-    let url: String
+    private let url: String
 
     init(url: String) {
         self.url = url

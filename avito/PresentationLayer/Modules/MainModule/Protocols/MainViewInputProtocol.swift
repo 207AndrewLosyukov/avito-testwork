@@ -11,7 +11,7 @@ protocol MainViewInputProtocol: AnyObject {
 
     func setLoadedState(with items: [ProductItem])
 
-    func setErrorState(error: String)
+    func setErrorState(_ error: String)
 
     func setLoadingState()
     

@@ -19,38 +19,22 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
-    enum Constants {
-        static let bigFontSize = 25.0
-        static let middleFontSize = 22.0
-        static let smallFontSize = 18.0
-
-        static let buttonHeight = 50.0
-        static let defaultInset = 20.0
-        static let animationDuration = 0.4
-
-        static let descriptionTitleLabelText = "Описание"
-        static let geoTitleLabelText = "Расположение"
-        static let contactsTitleLabelText = "Контакты"
-        static let buyButtonText = "Купить"
-        
-        static let stackViewSpacing = 10.0
-        static let stackViewCustomSpacing = 2.0
-
-        static let errorImageViewTopConstraint = 80.0
-        static let errorImageViewSideConstraint = 40.0
-        static let errorImageViewHeight = 400.0
-        static let errorLabelTopConstraint = 20.0
-    }
-
     private let output: DetailsViewOutputProtocol
-
-    private let scrollView = UIScrollView()
 
     private var isButtonAnimating = false
 
-    private let screenWidth = UIScreen.main.bounds.width
+    init(output: DetailsViewOutputProtocol) {
+        self.output = output
+        super.init(nibName: nil, bundle: nil)
+    }
 
-    private let refreshControl = UIRefreshControl()
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private lazy var scrollView = UIScrollView()
+
+    private lazy var refreshControl = UIRefreshControl()
 
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -95,91 +79,25 @@ class DetailsViewController: UIViewController {
         return label
     }()
 
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.lineBreakMode = .byTruncatingTail
-        label.font = UIFont.systemFont(ofSize: Constants.bigFontSize)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        return label
-    }()
+    private lazy var titleLabel = makeDetailsLabel(with: Constants.bigFontSize, color: .black)
 
-    private lazy var priceLabel: UILabel = {
-        let label = UILabel()
-        label.lineBreakMode = .byTruncatingTail
-        label.font = UIFont.boldSystemFont(ofSize: Constants.bigFontSize)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        return label
-    }()
+    private lazy var priceLabel = makeDetailsLabel(with: Constants.bigFontSize, color: .black)
 
-    private lazy var geoLabel: UILabel = {
-        let label = UILabel()
-        label.lineBreakMode = .byTruncatingTail
-        label.font = UIFont.systemFont(ofSize: Constants.smallFontSize)
-        label.textColor = .systemGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        return label
-    }()
+    private lazy var geoLabel = makeDetailsLabel(with: Constants.smallFontSize, color: .systemGray)
 
-    private lazy var createdDateLabel: UILabel = {
-        let label = UILabel()
-        label.lineBreakMode = .byTruncatingTail
-        label.font = UIFont.systemFont(ofSize: Constants.smallFontSize)
-        label.textColor = .systemGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        return label
-    }()
+    private lazy var createdDateLabel = makeDetailsLabel(with: Constants.smallFontSize, color: .systemGray)
 
-    private lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.lineBreakMode = .byTruncatingTail
-        label.font = UIFont.systemFont(ofSize: Constants.smallFontSize)
-        label.textColor = .systemGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        return label
-    }()
+    private lazy var descriptionLabel = makeDetailsLabel(with: Constants.smallFontSize, color: .systemGray)
 
-    private lazy var emailLabel: UILabel = {
-        let label = UILabel()
-        label.lineBreakMode = .byTruncatingTail
-        label.font = UIFont.systemFont(ofSize: Constants.smallFontSize)
-        label.textColor = .systemGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        return label
-    }()
+    private lazy var emailLabel = makeDetailsLabel(with: Constants.smallFontSize, color: .systemGray)
 
-    private lazy var phoneNumberLabel: UILabel = {
-        let label = UILabel()
-        label.lineBreakMode = .byTruncatingTail
-        label.font = UIFont.systemFont(ofSize: Constants.smallFontSize)
-        label.textColor = .systemGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        return label
-    }()
+    private lazy var phoneNumberLabel = makeDetailsLabel(with: Constants.smallFontSize, color: .systemGray)
 
-    private lazy var descriptionTitleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: Constants.middleFontSize)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
-        return label
-    }()
+    private lazy var descriptionTitleLabel = makeBoldDetailsLabel()
 
-    private lazy var geoTitleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: Constants.middleFontSize)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
-        return label
-    }()
+    private lazy var geoTitleLabel = makeBoldDetailsLabel()
+
+    private lazy var contactsTitleLabel = makeBoldDetailsLabel()
 
     private var buyButton: UIButton = {
         let button = UIButton()
@@ -193,34 +111,18 @@ class DetailsViewController: UIViewController {
         return button
     }()
 
-    private lazy var contactsTitleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: Constants.middleFontSize)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
-        return label
-    }()
-
-    init(output: DetailsViewOutputProtocol) {
-        self.output = output
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
-        view.backgroundColor = .white
         output.loadDetails()
         setupUI()
     }
 
     private func setupUI() {
+        view.backgroundColor = .white
         view.addSubview(activityIndicator)
         scrollView.isUserInteractionEnabled = false
-        buyButton.addTarget(self, action: #selector(buyButtonOnTapHandler), for: .touchUpInside)
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(onPressedButton(_:)))
+        let longPressRecognizer = UILongPressGestureRecognizer(
+            target: self,
+            action: #selector(onPressedButton(_:)))
         buyButton.addGestureRecognizer(longPressRecognizer)
 
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -231,9 +133,28 @@ class DetailsViewController: UIViewController {
         scrollView.addSubview(errorImageView)
         scrollView.addSubview(errorLabel)
         imageView.addSubview(imageActivityIndicator)
+
         setupLoadingStateConstraints()
         setupErrorStateConstraints()
         setupLoadedStateConstraints()
+    }
+
+    private func makeDetailsLabel(with fontSize: CGFloat, color: UIColor) -> UILabel {
+        let label = UILabel()
+        label.lineBreakMode = .byTruncatingTail
+        label.font = UIFont.systemFont(ofSize: fontSize)
+        label.textColor = color
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        return label
+    }
+
+    private func makeBoldDetailsLabel() -> UILabel {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: Constants.middleFontSize)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        return label
     }
 
     private func setupLoadedStateConstraints() {
@@ -262,6 +183,7 @@ class DetailsViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
 
+        let screenWidth = UIScreen.main.bounds.width
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.heightAnchor.constraint(equalToConstant: screenWidth),
@@ -361,9 +283,6 @@ class DetailsViewController: UIViewController {
         refreshControl.beginRefreshing()
         output.loadDetails()
     }
-
-    @objc func buyButtonOnTapHandler() {
-    }
 }
 
 extension DetailsViewController: DetailsViewInputProtocol {
@@ -410,7 +329,7 @@ extension DetailsViewController: DetailsViewInputProtocol {
         imageActivityIndicator.startAnimating()
     }
 
-    func setErrorState(error: String) {
+    func setErrorState(_ error: String) {
         scrollView.isUserInteractionEnabled = true
         contentView.isHidden = true
         errorImageView.isHidden = false
@@ -421,4 +340,30 @@ extension DetailsViewController: DetailsViewInputProtocol {
         }
         errorLabel.text = "Потяните экран вниз для перезагрузки. Ошибка: \(error)"
     }
+}
+
+extension DetailsViewController {
+    enum Constants {
+        static let bigFontSize = 25.0
+        static let middleFontSize = 22.0
+        static let smallFontSize = 18.0
+
+        static let buttonHeight = 50.0
+        static let defaultInset = 20.0
+        static let animationDuration = 0.4
+
+        static let descriptionTitleLabelText = "Описание"
+        static let geoTitleLabelText = "Расположение"
+        static let contactsTitleLabelText = "Контакты"
+        static let buyButtonText = "Купить"
+
+        static let stackViewSpacing = 10.0
+        static let stackViewCustomSpacing = 2.0
+
+        static let errorImageViewTopConstraint = 80.0
+        static let errorImageViewSideConstraint = 40.0
+        static let errorImageViewHeight = 400.0
+        static let errorLabelTopConstraint = 20.0
+    }
+
 }
