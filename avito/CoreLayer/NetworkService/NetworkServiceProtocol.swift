@@ -8,6 +8,7 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
+    
     var session: URLSession { get }
 
     func fetch<Model, Parser>(request: RequestProtocol, parser: Parser,

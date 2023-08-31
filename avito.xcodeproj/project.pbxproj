@@ -10,9 +10,14 @@
 		15D82CDA2A9E36AF00DD062C /* MainViewInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CD92A9E36AF00DD062C /* MainViewInputProtocol.swift */; };
 		15D82CDC2A9E36C500DD062C /* MainViewOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CDB2A9E36C500DD062C /* MainViewOutputProtocol.swift */; };
 		15D82CDE2A9E37C700DD062C /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CDD2A9E37C700DD062C /* MainViewPresenter.swift */; };
-		15D82CE02A9E44C700DD062C /* RootAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CDF2A9E44C700DD062C /* RootAssembly.swift */; };
 		15D82CE42A9E461300DD062C /* MainModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CE32A9E461300DD062C /* MainModuleAssembly.swift */; };
 		15D82CE62A9E49F400DD062C /* MainModuleServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CE52A9E49F400DD062C /* MainModuleServiceAssembly.swift */; };
+		15D82CE92A9E4C0500DD062C /* DetailsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CE82A9E4C0500DD062C /* DetailsViewPresenter.swift */; };
+		15D82CEB2A9E4C1C00DD062C /* DetailsViewInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CEA2A9E4C1C00DD062C /* DetailsViewInputProtocol.swift */; };
+		15D82CED2A9E4C2600DD062C /* DetailsViewOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CEC2A9E4C2600DD062C /* DetailsViewOutputProtocol.swift */; };
+		15D82CF02A9E50FC00DD062C /* DetailsModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CEF2A9E50FC00DD062C /* DetailsModuleAssembly.swift */; };
+		15D82CF22A9E511E00DD062C /* DetailsServiceModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CF12A9E511E00DD062C /* DetailsServiceModuleAssembly.swift */; };
+		15D82CFA2AA061EE00DD062C /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D82CF92AA061EE00DD062C /* Responses.swift */; };
 		15FB74F82A97954400F621A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FB74F72A97954400F621A5 /* AppDelegate.swift */; };
 		15FB74FC2A97954400F621A5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FB74FB2A97954400F621A5 /* MainViewController.swift */; };
 		15FB75012A97954500F621A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15FB75002A97954500F621A5 /* Assets.xcassets */; };
@@ -33,9 +38,14 @@
 		15D82CD92A9E36AF00DD062C /* MainViewInputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewInputProtocol.swift; sourceTree = "<group>"; };
 		15D82CDB2A9E36C500DD062C /* MainViewOutputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewOutputProtocol.swift; sourceTree = "<group>"; };
 		15D82CDD2A9E37C700DD062C /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
-		15D82CDF2A9E44C700DD062C /* RootAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAssembly.swift; sourceTree = "<group>"; };
 		15D82CE32A9E461300DD062C /* MainModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleAssembly.swift; sourceTree = "<group>"; };
 		15D82CE52A9E49F400DD062C /* MainModuleServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleServiceAssembly.swift; sourceTree = "<group>"; };
+		15D82CE82A9E4C0500DD062C /* DetailsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewPresenter.swift; sourceTree = "<group>"; };
+		15D82CEA2A9E4C1C00DD062C /* DetailsViewInputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewInputProtocol.swift; sourceTree = "<group>"; };
+		15D82CEC2A9E4C2600DD062C /* DetailsViewOutputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewOutputProtocol.swift; sourceTree = "<group>"; };
+		15D82CEF2A9E50FC00DD062C /* DetailsModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModuleAssembly.swift; sourceTree = "<group>"; };
+		15D82CF12A9E511E00DD062C /* DetailsServiceModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsServiceModuleAssembly.swift; sourceTree = "<group>"; };
+		15D82CF92AA061EE00DD062C /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
 		15FB74F42A97954400F621A5 /* avito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = avito.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FB74F72A97954400F621A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15FB74FB2A97954400F621A5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +84,62 @@
 			path = Assemblies;
 			sourceTree = "<group>";
 		};
+		15D82CEE2A9E50EC00DD062C /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				15D82CEF2A9E50FC00DD062C /* DetailsModuleAssembly.swift */,
+				15D82CF12A9E511E00DD062C /* DetailsServiceModuleAssembly.swift */,
+			);
+			path = Assemblies;
+			sourceTree = "<group>";
+		};
+		15D82CFB2AA06B7300DD062C /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				15FB74F72A97954400F621A5 /* AppDelegate.swift */,
+				15FB75212A9E1F9800F621A5 /* Modules */,
+				15FB752A2A9E203E00F621A5 /* Models */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		15D82CFC2AA06B9F00DD062C /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				15D82CFF2AA06C4500DD062C /* ItemLoaderService */,
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		15D82CFD2AA06BA500DD062C /* CoreLayer */ = {
+			isa = PBXGroup;
+			children = (
+				15D82CFE2AA06C0F00DD062C /* NetworkService */,
+			);
+			path = CoreLayer;
+			sourceTree = "<group>";
+		};
+		15D82CFE2AA06C0F00DD062C /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				15FB75122A979A0C00F621A5 /* NetworkService.swift */,
+				15FB75152A979A0C00F621A5 /* NetworkServiceProtocol.swift */,
+				15FB75112A979A0C00F621A5 /* Requests.swift */,
+				15D82CF92AA061EE00DD062C /* Responses.swift */,
+				15FB75132A979A0C00F621A5 /* RequestParsers.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		15D82CFF2AA06C4500DD062C /* ItemLoaderService */ = {
+			isa = PBXGroup;
+			children = (
+				15FB75102A979A0C00F621A5 /* ItemLoaderService.swift */,
+				15FB75162A979A0C00F621A5 /* ItemLoaderServiceProtocol.swift */,
+			);
+			path = ItemLoaderService;
+			sourceTree = "<group>";
+		};
 		15FB74EB2A97954400F621A5 = {
 			isa = PBXGroup;
 			children = (
@@ -93,37 +159,14 @@
 		15FB74F62A97954400F621A5 /* avito */ = {
 			isa = PBXGroup;
 			children = (
-				15FB74F72A97954400F621A5 /* AppDelegate.swift */,
-				15D82CDF2A9E44C700DD062C /* RootAssembly.swift */,
-				15FB75212A9E1F9800F621A5 /* Modules */,
-				15FB752A2A9E203E00F621A5 /* Models */,
-				15FB750F2A979A0C00F621A5 /* Services */,
+				15D82CFB2AA06B7300DD062C /* PresentationLayer */,
+				15D82CFC2AA06B9F00DD062C /* ServiceLayer */,
+				15D82CFD2AA06BA500DD062C /* CoreLayer */,
 				15FB75002A97954500F621A5 /* Assets.xcassets */,
 				15FB75022A97954500F621A5 /* LaunchScreen.storyboard */,
 				15FB75052A97954500F621A5 /* Info.plist */,
 			);
 			path = avito;
-			sourceTree = "<group>";
-		};
-		15FB750F2A979A0C00F621A5 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				15FB75142A979A0C00F621A5 /* Protocols */,
-				15FB75102A979A0C00F621A5 /* ItemLoaderService.swift */,
-				15FB75112A979A0C00F621A5 /* Requests.swift */,
-				15FB75122A979A0C00F621A5 /* NetworkService.swift */,
-				15FB75132A979A0C00F621A5 /* RequestParsers.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		15FB75142A979A0C00F621A5 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				15FB75152A979A0C00F621A5 /* NetworkServiceProtocol.swift */,
-				15FB75162A979A0C00F621A5 /* ItemLoaderServiceProtocol.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		15FB75212A9E1F9800F621A5 /* Modules */ = {
@@ -149,6 +192,7 @@
 		15FB75232A9E1FAF00F621A5 /* DetailsModule */ = {
 			isa = PBXGroup;
 			children = (
+				15D82CEE2A9E50EC00DD062C /* Assemblies */,
 				15FB75292A9E201300F621A5 /* Views */,
 				15FB75282A9E200E00F621A5 /* Presenter */,
 				15FB75272A9E200A00F621A5 /* Protocols */,
@@ -185,6 +229,8 @@
 		15FB75272A9E200A00F621A5 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				15D82CEA2A9E4C1C00DD062C /* DetailsViewInputProtocol.swift */,
+				15D82CEC2A9E4C2600DD062C /* DetailsViewOutputProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -192,6 +238,7 @@
 		15FB75282A9E200E00F621A5 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				15D82CE82A9E4C0500DD062C /* DetailsViewPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -283,23 +330,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15D82CFA2AA061EE00DD062C /* Responses.swift in Sources */,
 				15FB751A2A979A0C00F621A5 /* RequestParsers.swift in Sources */,
-				15D82CE02A9E44C700DD062C /* RootAssembly.swift in Sources */,
 				15FB74FC2A97954400F621A5 /* MainViewController.swift in Sources */,
 				15D82CE42A9E461300DD062C /* MainModuleAssembly.swift in Sources */,
+				15D82CEB2A9E4C1C00DD062C /* DetailsViewInputProtocol.swift in Sources */,
 				15D82CE62A9E49F400DD062C /* MainModuleServiceAssembly.swift in Sources */,
 				15D82CDE2A9E37C700DD062C /* MainViewPresenter.swift in Sources */,
+				15D82CED2A9E4C2600DD062C /* DetailsViewOutputProtocol.swift in Sources */,
 				15FB751C2A979A0C00F621A5 /* ItemLoaderServiceProtocol.swift in Sources */,
 				15FB750E2A97979000F621A5 /* ProductCell.swift in Sources */,
 				15FB74F82A97954400F621A5 /* AppDelegate.swift in Sources */,
 				15FB75182A979A0C00F621A5 /* Requests.swift in Sources */,
+				15D82CF02A9E50FC00DD062C /* DetailsModuleAssembly.swift in Sources */,
 				15FB751E2A98BEBA00F621A5 /* ConfigurableViewProtocol.swift in Sources */,
 				15D82CDA2A9E36AF00DD062C /* MainViewInputProtocol.swift in Sources */,
+				15D82CE92A9E4C0500DD062C /* DetailsViewPresenter.swift in Sources */,
 				15FB75202A98BED800F621A5 /* ProductCellModel.swift in Sources */,
 				15FB751B2A979A0C00F621A5 /* NetworkServiceProtocol.swift in Sources */,
 				15FB750C2A97974600F621A5 /* DetailsViewController.swift in Sources */,
 				15FB75172A979A0C00F621A5 /* ItemLoaderService.swift in Sources */,
 				15D82CDC2A9E36C500DD062C /* MainViewOutputProtocol.swift in Sources */,
+				15D82CF22A9E511E00DD062C /* DetailsServiceModuleAssembly.swift in Sources */,
 				15FB75192A979A0C00F621A5 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

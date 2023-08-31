@@ -9,7 +9,11 @@ import Foundation
 
 protocol MainViewInputProtocol: AnyObject {
 
-    func updateSnapshot(with items: [ProductItem])
+    func setLoadedState(with items: [ProductItem])
 
-    func setLoading(enabled: Bool)
+    func setErrorState(error: String)
+
+    func setLoadingState()
+    
+    func updateLoadedState(with items: [ProductItem])
 }

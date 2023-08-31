@@ -9,6 +9,12 @@ import UIKit
 
 class ProductCell: UICollectionViewCell, ConfigurableViewProtocol {
 
+    enum Constants {
+        static let reuseIdentifier = "ProductCell"
+        static let bigFontSize = 16.0
+        static let smallFontSize = 14.0
+    }
+
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,7 +26,7 @@ class ProductCell: UICollectionViewCell, ConfigurableViewProtocol {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.lineBreakMode = .byTruncatingTail
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: Constants.bigFontSize)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -29,7 +35,7 @@ class ProductCell: UICollectionViewCell, ConfigurableViewProtocol {
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.lineBreakMode = .byTruncatingTail
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = UIFont.boldSystemFont(ofSize: Constants.bigFontSize)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -38,7 +44,7 @@ class ProductCell: UICollectionViewCell, ConfigurableViewProtocol {
     private lazy var locationLabel: UILabel = {
         let label = UILabel()
         label.lineBreakMode = .byTruncatingTail
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: Constants.smallFontSize)
         label.textColor = .systemGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -47,7 +53,7 @@ class ProductCell: UICollectionViewCell, ConfigurableViewProtocol {
     private lazy var createdDateLabel: UILabel = {
         let label = UILabel()
         label.lineBreakMode = .byTruncatingTail
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: Constants.smallFontSize)
         label.textColor = .systemGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -56,7 +62,7 @@ class ProductCell: UICollectionViewCell, ConfigurableViewProtocol {
 
     typealias ConfigurationModel = ProductCellModel
     func configure(with model: ProductCellModel) {
-        imageView.image = model.image
+        imageView.image = model.image ?? UIImage(named: "placeholder")
         titleLabel.text = model.title
         priceLabel.text = model.price
         locationLabel.text = model.location

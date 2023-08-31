@@ -11,7 +11,7 @@ class ItemLoaderService: ItemLoaderServiceProtocol {
 
     let networkService: NetworkServiceProtocol
 
-    init(networkService: NetworkServiceProtocol) {
+    init(networkService: NetworkServiceProtocol = NetworkService()) {
         self.networkService = networkService
     }
 
@@ -51,4 +51,3 @@ class ItemLoaderService: ItemLoaderServiceProtocol {
         }
     }
 }
-

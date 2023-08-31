@@ -20,7 +20,7 @@ class MainViewPresenter: MainViewOutputProtocol {
     }
 
     func loadItemsList() {
-        viewInput?.setLoading(enabled: true)
+        viewInput?.setLoadingState()
         service.loadItemsList(handler: {[weak self] result in
             switch(result) {
             case .success(let items):
@@ -29,12 +29,13 @@ class MainViewPresenter: MainViewOutputProtocol {
                 })
                 DispatchQueue.main.async {
                     if let items = self?.items {
-                        self?.viewInput?.updateSnapshot(with: items)
+                        self?.viewInput?.setLoadedState(with: items)
                     }
-                    self?.viewInput?.setLoading(enabled: false)
                 }
             case .failure(let error):
-                print(error)
+                DispatchQueue.main.async {
+                    self?.viewInput?.setErrorState(error: error.localizedDescription)
+                }
             }
         })
     }
@@ -54,7 +55,7 @@ class MainViewPresenter: MainViewOutputProtocol {
                 DispatchQueue.main.async {
                     self?.items[index].model = copyModel
                     if let items = self?.items {
-                        self?.viewInput?.updateSnapshot(with: items)
+                        self?.viewInput?.updateLoadedState(with: items)
                     }
                 }
             case .failure(let error):
@@ -73,7 +74,9 @@ class MainViewPresenter: MainViewOutputProtocol {
 
     func openDetails(navigationController: UINavigationController?, withItemIndex index: Int) {
         if let navigationController = navigationController {
-            navigationController.pushViewController(DetailsViewController(id: items[index].model.id), animated: false)
+            let detailsServiceModuleAssembly = DetailsServiceModuleAssembly(itemLoaderService: service)
+            let detailsAssembly = DetailsModuleAssembly(serviceAssembly: detailsServiceModuleAssembly)
+            navigationController.pushViewController(detailsAssembly.makeDetailsModule(withId: items[index].model.id), animated: false)
         }
     }
 }

@@ -14,4 +14,5 @@ protocol MainViewOutputProtocol {
     func configure(cell: ProductCell, index: Int)
     
     func openDetails(navigationController: UINavigationController?, withItemIndex index: Int)
+
 }

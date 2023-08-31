@@ -9,7 +9,7 @@ import UIKit
 
 class NetworkService: NetworkServiceProtocol {
 
-    enum Errors: Error {
+    enum NetworkErrors: Error {
         case requestError(_ string: String)
     }
 
@@ -23,7 +23,7 @@ class NetworkService: NetworkServiceProtocol {
                               handler: @escaping(Result<Model, Error>) -> Void)
     where Model == Parser.Model, Parser: ResponseParserProtocol {
         guard let urlRequest = request.urlRequest else {
-            handler(.failure(Errors.requestError("nil request")))
+            handler(.failure(NetworkErrors.requestError("nil request")))
             return
         }
         let task = session.dataTask(with: urlRequest) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -32,12 +32,12 @@ class NetworkService: NetworkServiceProtocol {
                 return
             } else if let response = (response as? HTTPURLResponse),
                       !(200...299).contains(response.statusCode) {
-                handler(.failure(Errors.requestError("error")))
+                handler(.failure(NetworkErrors.requestError("error")))
             } else if let data = data {
                 if let model = parser.parse(data: data) {
                     handler(.success(model))
                 } else {
-                    handler(.failure(Errors.requestError("can't parse")))
+                    handler(.failure(NetworkErrors.requestError("can't parse")))
                 }
             }
         }
