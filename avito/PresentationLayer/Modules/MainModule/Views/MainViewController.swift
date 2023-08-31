@@ -49,7 +49,7 @@ class MainViewController: UIViewController {
 
         static let fontSize = 18.0
 
-        static let errorImageViewTopConstraint = 125.0
+        static let errorImageViewTopConstraint = 80.0
         static let errorImageViewSideConstraint = 40.0
         static let errorImageViewHeight = 400.0
         static let errorLabelTopConstraint = 20.0
