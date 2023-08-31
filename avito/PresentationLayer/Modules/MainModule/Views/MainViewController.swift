@@ -25,6 +25,13 @@ struct ProductItem: Hashable {
     var model: ProductCellModel
 }
 
+/* У этого экрана 3 состояния:
+ состояние ошибки
+ состояние загрузки
+ загруженный экран (картинки могут не догрузиться - на их месте будет placeholder)
+ Информация подгружается в том числе и из кэша, так как URLRequest настроен с такой cachePolicy
+ */
+
 class MainViewController: UIViewController {
 
     private var output: MainViewOutputProtocol
@@ -34,10 +41,18 @@ class MainViewController: UIViewController {
     enum Constants {
         static let spacing = 20.0
         static let minimumLineSpacing = 15.0
+
         static let cellWidth = 160.0
         static let cellHeight = 230.0
-        static let transitionAnimationDuration = 1.0
+
+        static let transitionAnimationDuration = 0.6
+
         static let fontSize = 18.0
+
+        static let errorImageViewTopConstraint = 125.0
+        static let errorImageViewSideConstraint = 40.0
+        static let errorImageViewHeight = 400.0
+        static let errorLabelTopConstraint = 20.0
     }
 
     init(output: MainViewOutputProtocol) {
@@ -115,13 +130,13 @@ class MainViewController: UIViewController {
         view.addSubview(errorImageView)
         view.addSubview(errorLabel)
         NSLayoutConstraint.activate([
-            errorImageView.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 125),
-            errorImageView.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor, constant: 40),
-            errorImageView.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor, constant: -40),
-            errorImageView.heightAnchor.constraint(equalToConstant: 400)
+            errorImageView.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: Constants.errorImageViewTopConstraint),
+            errorImageView.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor, constant: Constants.errorImageViewSideConstraint),
+            errorImageView.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor, constant: -Constants.errorImageViewSideConstraint),
+            errorImageView.heightAnchor.constraint(equalToConstant: Constants.errorImageViewHeight)
         ])
         NSLayoutConstraint.activate([
-            errorLabel.topAnchor.constraint(equalTo: errorImageView.bottomAnchor, constant: 20),
+            errorLabel.topAnchor.constraint(equalTo: errorImageView.bottomAnchor, constant: Constants.errorLabelTopConstraint),
             errorLabel.leadingAnchor.constraint(equalTo: errorImageView.leadingAnchor),
             errorLabel.trailingAnchor.constraint(equalTo: errorImageView.trailingAnchor),
         ])

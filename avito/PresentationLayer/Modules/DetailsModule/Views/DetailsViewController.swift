@@ -7,19 +7,39 @@
 
 import UIKit
 
+/* У этого экрана 6 состояний:
+ загрузка экрана в целом
+ загруженный экран, но без картинки
+ загрузка картинки
+ загруженный экран вместе с картинкой
+ состояние ошибки, когда экран не загрузился совсем
+ состояние ошибки, когда не загрузилась картинка (ставится placeholder).
+ Информация подгружается в том числе и из кэша, так как URLRequest настроен с такой cachePolicy
+ */
+
 class DetailsViewController: UIViewController {
 
     enum Constants {
         static let bigFontSize = 25.0
         static let middleFontSize = 22.0
         static let smallFontSize = 18.0
+
         static let buttonHeight = 50.0
         static let defaultInset = 20.0
         static let animationDuration = 0.4
+
         static let descriptionTitleLabelText = "Описание"
         static let geoTitleLabelText = "Расположение"
         static let contactsTitleLabelText = "Контакты"
         static let buyButtonText = "Купить"
+        
+        static let stackViewSpacing = 10.0
+        static let stackViewCustomSpacing = 2.0
+
+        static let errorImageViewTopConstraint = 200.0
+        static let errorImageViewSideConstraint = 40.0
+        static let errorImageViewHeight = 400.0
+        static let errorLabelTopConstraint = 20.0
     }
 
     private let output: DetailsViewOutputProtocol
@@ -223,10 +243,10 @@ class DetailsViewController: UIViewController {
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.distribution = .equalCentering
-        stackView.spacing = 10
-        stackView.setCustomSpacing(2, after: geoTitleLabel)
-        stackView.setCustomSpacing(2, after: descriptionTitleLabel)
-        stackView.setCustomSpacing(2, after: contactsTitleLabel)
+        stackView.spacing = Constants.stackViewSpacing
+        stackView.setCustomSpacing(Constants.stackViewCustomSpacing, after: geoTitleLabel)
+        stackView.setCustomSpacing(Constants.stackViewCustomSpacing, after: descriptionTitleLabel)
+        stackView.setCustomSpacing(Constants.stackViewCustomSpacing, after: contactsTitleLabel)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.isLayoutMarginsRelativeArrangement = true
 
@@ -264,13 +284,13 @@ class DetailsViewController: UIViewController {
 
     private func setupErrorStateConstraints() {
         NSLayoutConstraint.activate([
-            errorImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
-            errorImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            errorImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            errorImageView.heightAnchor.constraint(equalToConstant: 400)
+            errorImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.errorImageViewTopConstraint),
+            errorImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.errorImageViewSideConstraint),
+            errorImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.errorImageViewSideConstraint),
+            errorImageView.heightAnchor.constraint(equalToConstant: Constants.errorImageViewHeight)
         ])
         NSLayoutConstraint.activate([
-            errorLabel.topAnchor.constraint(equalTo: errorImageView.bottomAnchor, constant: 20),
+            errorLabel.topAnchor.constraint(equalTo: errorImageView.bottomAnchor, constant: Constants.errorLabelTopConstraint),
             errorLabel.leadingAnchor.constraint(equalTo: errorImageView.leadingAnchor),
             errorLabel.trailingAnchor.constraint(equalTo: errorImageView.trailingAnchor),
         ])

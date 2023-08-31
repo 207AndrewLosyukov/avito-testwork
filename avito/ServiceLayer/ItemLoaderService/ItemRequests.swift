@@ -17,6 +17,7 @@ class ItemImageRequest: RequestProtocol {
         guard let url = URL(string: url) else {
             return nil
         }
+        // Если интернет отключен, но что-то закэшировалось - беру из кэша
         return URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
     }
 
