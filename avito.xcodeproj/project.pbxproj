@@ -96,7 +96,6 @@
 		15D82CFB2AA06B7300DD062C /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				15FB74F72A97954400F621A5 /* AppDelegate.swift */,
 				15FB75212A9E1F9800F621A5 /* Modules */,
 				15FB752A2A9E203E00F621A5 /* Models */,
 			);
@@ -159,6 +158,7 @@
 		15FB74F62A97954400F621A5 /* avito */ = {
 			isa = PBXGroup;
 			children = (
+				15FB74F72A97954400F621A5 /* AppDelegate.swift */,
 				15D82CFB2AA06B7300DD062C /* PresentationLayer */,
 				15D82CFC2AA06B9F00DD062C /* ServiceLayer */,
 				15D82CFD2AA06BA500DD062C /* CoreLayer */,

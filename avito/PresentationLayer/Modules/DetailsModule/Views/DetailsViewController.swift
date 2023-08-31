@@ -36,7 +36,7 @@ class DetailsViewController: UIViewController {
         static let stackViewSpacing = 10.0
         static let stackViewCustomSpacing = 2.0
 
-        static let errorImageViewTopConstraint = 200.0
+        static let errorImageViewTopConstraint = 125.0
         static let errorImageViewSideConstraint = 40.0
         static let errorImageViewHeight = 400.0
         static let errorLabelTopConstraint = 20.0
@@ -228,8 +228,8 @@ class DetailsViewController: UIViewController {
         scrollView.addSubview(contentView)
         refreshControl.addTarget(self, action: #selector(refreshDetails), for: .valueChanged)
         scrollView.refreshControl = refreshControl
-        view.addSubview(errorImageView)
-        view.addSubview(errorLabel)
+        scrollView.addSubview(errorImageView)
+        scrollView.addSubview(errorLabel)
         imageView.addSubview(imageActivityIndicator)
         setupLoadingStateConstraints()
         setupErrorStateConstraints()
@@ -284,9 +284,9 @@ class DetailsViewController: UIViewController {
 
     private func setupErrorStateConstraints() {
         NSLayoutConstraint.activate([
-            errorImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.errorImageViewTopConstraint),
-            errorImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.errorImageViewSideConstraint),
-            errorImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.errorImageViewSideConstraint),
+            errorImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: Constants.errorImageViewTopConstraint),
+            errorImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: Constants.errorImageViewSideConstraint),
+            errorImageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -Constants.errorImageViewSideConstraint),
             errorImageView.heightAnchor.constraint(equalToConstant: Constants.errorImageViewHeight)
         ])
         NSLayoutConstraint.activate([
